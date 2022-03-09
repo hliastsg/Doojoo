@@ -1,0 +1,3 @@
+[submodule "Doojoo"]
+	path = Doojoo
+	url = https://github.com/hliastsg/Doojoo.git
