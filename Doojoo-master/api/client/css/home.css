@@ -1,0 +1,15 @@
+.dashboard{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+}
+
+.home {
+  font-family: Helvetica;
+  background: linear-gradient(#9e9898, transparent 150%), #505050;
+}
