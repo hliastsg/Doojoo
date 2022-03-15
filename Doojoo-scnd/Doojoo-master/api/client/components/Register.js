@@ -41,20 +41,11 @@ const Register = ({ nav }) => {
     }
   }, [errors]);
 
-  // const renderCssClasses = () => {
-  //   let classes = "";
-
-  //   if (nav) {
-  //     classes += "activenav"; 
-  //   }
-  //   return classes;
-  // }
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    //console.log(formValues);
-
   }
+  
   const validate = (values) => {
     const error = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -88,8 +79,8 @@ const Register = ({ nav }) => {
     <form onSubmit={registerUser}
       className={nav ? "forms active__ welcome" : "forms welcome"}
     >
-      {Object.keys(errors).length === 0 && isSubmit ? (<p>Signed up succesfully!</p>)
-        : <pre>Complete the fields to register</pre>}
+      {Object.keys(errors).length === 0 && isSubmit ? (<p id="rgstr">Signed up succesfully!</p>)
+        : <pre id="rgstr">Complete the fields to register</pre>}
       <div className="form_control">
         <input
           className={errors.name ? "form_control error" : ""}

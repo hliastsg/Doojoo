@@ -15,7 +15,7 @@ router.post('/register', async(req,res) => {
   try {
     // Get user input
     const { name, surname, email, password, dateofbirth } = req.body;
-
+    console.log(dateofbirth);
     // check if user already exist
     // Validate if user exist in our database
     const exists = await Account.findOne({ email });
@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
           secure: process.env.NODE_ENV === "production"
         })
         .status(200)
-        .send(user.email);
+        .json(user);
     } else {
       res.status(202).json("Incorrect Password!" );
     }
@@ -110,6 +110,23 @@ router.get('/logout', auth, (req,res) => {
     .json(err);
   }
   
+});
+
+router.post('/edit', auth, async(req,res) => {
+
+  try {
+    const user = await Account.findOne({ $or: [ {email: req.body.email} ] })
+    if (!user) return res
+      .status(404)
+      .send("User Not Found!");
+    else {
+      return res
+      .json(user);
+    }
+  }catch(e) {
+
+  }
+
 });
 
 export default router;

@@ -3,7 +3,6 @@ import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { Logout } from '../store/actions/authAction';
 import { useSelector,useDispatch } from 'react-redux';
-//import Auth from './Auth';
 
 const Dashboard = () => {
 

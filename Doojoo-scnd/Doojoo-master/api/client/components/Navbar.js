@@ -60,7 +60,7 @@ const Navbar = ({nav, setNav}) => {
          <Link to="/dashboard">
           <li onClick={linkOnClick} className="link">Home</li>
          </Link>
-         <Link to="/account">
+         <Link to="/account/usr-config">
           <li onClick={linkOnClick} className="link">Account</li>
          </Link>
        </ul>

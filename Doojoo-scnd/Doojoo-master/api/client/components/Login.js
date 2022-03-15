@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import { useDispatch } from 'react-redux';
 import { LoginSuccess, LoginError } from '../store/actions/authAction';
+import { getUser } from '../store/actions/getUserAction';
 
 const Login = ({ nav }) => {
 
@@ -22,7 +23,10 @@ const Login = ({ nav }) => {
       .then((response) => {
         if (response.status === 200) {
           setResult("");
-          localStorage.setItem("user",response.data);
+          localStorage.setItem("email",response.data.email);
+          localStorage.setItem("name", response.data.name);
+          localStorage.setItem("surname", response.data.surname);
+          localStorage.setItem("dob", response.data.dob);
           setIsLogedIn(true);
         } else if (response.status === 202) {
           setResult("Incorect Password!");
@@ -43,6 +47,7 @@ const Login = ({ nav }) => {
           console.log(response.data);
           if (response.status === 200) {
             dispatch(LoginSuccess())
+            dispatch(getUser())
             navigate("/dashboard");
           }
         })

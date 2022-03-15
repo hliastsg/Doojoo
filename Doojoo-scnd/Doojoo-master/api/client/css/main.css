@@ -211,7 +211,11 @@ form pre, p, h2 {
   letter-spacing: 2px;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+}
+
+#rgstr {
+  margin-bottom: 45px;
 }
 
 .login {
